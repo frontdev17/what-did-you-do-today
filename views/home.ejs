@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Did You Do Today?</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="/images/whatphoto.svg" alt="What Did You Do Today Logo" class="logo">
+    
+    
+    <form action="/posts" method="POST">
+      <input 
+  type="text" 
+  name="screenName" 
+  placeholder="Enter screen name (optional)"
+  maxlength="30"
+>
+<textarea 
+  name="content" 
+  placeholder="Tell us what you did today..." 
+  required
+  maxlength="500"
+></textarea>
+
+      
+      <button type="submit">Post</button>
+    </form>
+
+    <div class="posts">
+      <% if (posts.length === 0) { %>
+        <div class="post">
+          <p>No posts yet. Be the first to share!</p>
+        </div>
+      <% } %>
+      
+      <% posts.forEach(post => { %>
+        <div class="post">
+          <strong>
+            <%= post.screenName || 'Anonymous' %>
+          </strong>
+          <p><%= post.content %></p>
+          <small>
+            Posted on <%= post.createdAt.toLocaleDateString() %> 
+            at <%= post.createdAt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %>
+          </small>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>
