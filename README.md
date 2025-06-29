@@ -16,7 +16,7 @@ A fun, colorful micro-blogging app where users can post what they did today. Bui
 
 ## 📸 Screenshot
 
-![App Screenshot](./screenshot.png)
+![App Screenshot](./screenshot.png )
 
 ---
 
